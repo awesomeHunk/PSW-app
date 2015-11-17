@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<?php
+$str = $_COOKIE["MyCookie"];
+$array = explode("|",$str);
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Gaming Experience!</title>
+		<meta name="author" content="Lukasz Bialkowski"/>
+		<meta name="description" content="Software and Hardware comparison"/>
+		<meta name="keywords" content="gaming, performance, boost, optymalization"/>
+		<meta charset="UTF-8"/>
+
+		<!-- Style dependency -->
+		<link rel="shortcut icon" href="images/software_icon.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body {
+  font-family: <?php echo $array[0]; ?>;
+  font-size: <?php echo $array[1]; ?>pt;
+  background: rgb(<?php echo $array[2]; ?>, <?php echo $array[3]; ?>, <?php echo $array[4]; ?>);
+}
+
+</style>
+	
+	</head>
+	<body  onload="set_current_menu_active('article'); init_site()" onkeydown="isKeyPressed(event)">
+		<div id="container">
+	
+		<div id="website_logo">
+			<a href="index.html">
+				<img id="logo_image" src="images/software_icon.png" alt="Logo image">
+				<span>Soft<b>House</b></span>
+			</a>
+		</div>
+		
+		<nav id="menu">
+			<div class="option">Main page</div>
+			<div class="option">Article</div>
+			<div class="option">Download</div>
+			<div class="option">Contact</div>
+			<div style="clear:both;"></div>
+		</nav>
+		
+		<div id="topbar">
+			<div id="topbarR">
+				<h1>Co znajdziesz na tej stronie?</h1>
+				Lorem esent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula.
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<aside id="sidebar">
+			<ul id="sidebar_menu">
+				<li><a href="index.html" name="main_page">Main&nbsp;page</a></li>
+				<li>Article
+					<ul>
+						<li>
+							<a href="article_content_top_chromeos_apps.html">Top Chrome Apps</a>
+							<ul>
+								<li>
+									<a href="article_content_top_chromeos_apps.html" name="article">Article</a>
+								</li>
+								<li>
+									<a href="article_content_top_chromeos_apps.html#apps_table">Summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">Gaming</a>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">App 'Boostrl'</a>
+						</li>
+					</ul>
+				</li>
+				<li><a href="download.html">Download</a></li>
+				<li><a href="contactme.html" name="contact_menu" onclick="javascript:set_current(this)">Contact</a></li>
+			</ul>
+		</aside>
+		
+		<section id="content">
+			<article>
+				<header>
+					<h1 id="article_content_header">Software vs. Hardware!</h1>
+					<div class="dottedline"></div>
+				</header>
+				
+				<img id="article_content_img" src="images/hdd.png" alt="Software czy hardware? Co ważniejsze?">
+				<p id="article_content_paragraph">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia mollis odio eu bibendum. Praesent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula. Cras condimentum felis ac aliquet tristique. Sed elementum eu nulla vel rutrum. Cras feugiat nulla non congue malesuada.
+				</p>
+				<br />
+				<div style="clear: both"></div>
+
+				<a id="fixed_up_link" href="#container" style="text-decoration: none; color: black; font-size: 20px; text-align:center; vertical-align:middle; ">&#8593;</a>
+
+				<div id="pc_format_link" style="text-align:center; ">
+				<a href="http://www.pcformat.pl/Chrome-OS,tag" style="vertical-alignment: center;">
+					<span style="vertical-align: middle;">Click 'PCFormat' box for futher view --></span>
+					<img style="vertical-align: middle;" src="images/pcformat.png" alt="PCFormat website" id="pc_format_image">
+				</a>
+				<div style="clear: both;"></div>
+			</div>
+			</article>
+			<br/>
+
+			<section id="events_box" 
+					style="border: 1px solid black; font-size: 17px; padding: 10px;"
+					onmouseenter="mouse_entered(event)"
+					onmousemove="document.getElementById('mouse_pointer_current').innerHTML= 'x: ' + event.screenX +', y: ' + event.screenY;" onmouseout="mouse_out(event)"
+					onclick="mousePosition(event)">
+
+					<header>
+						<h3>Config tools:</h3>
+						Font size: <input type="number" id="cfg_font_size" name="cfg_font_size" min="15" max="22" value="17"><br/>
+						Font family: <select id="cfg_font_family" name="cfg_font_family">
+							 				<optgroup>
+							  				   <option>Verdana</option>
+							 				   <option>Arial</option>
+							  				   <option>Lato</option>
+							 		 		</optgroup>
+									</select><br/>
+						Background color: <br/>
+								red: <input type="number" id="cfg_red" min="0" max="255" value="150">
+								green: <input type="number" id="cfg_green" min="0" max="255" value="150">
+								blue: <input type="number" id="cfg_blue" min="0" max="255" value="150">
+								<br/><br/>
+						<div><button type="button" onclick="cfg_applying()">Apply config</button></div><br/>
+					</header>
+					<br/>
+				Resize this window:
+				<p id="resize_box"></p>
+				Mouse pointer screen:
+				<p id="mouse_pointer_screen"></p>
+				Mouse pointer relative:
+				<p id="mouse_pointer_relative"></p>
+				Mouse pointer current position:
+				<p id="mouse_pointer_current"></p>
+				Key code pressed:
+				<p id="charcode_box"></p>
+				Alt pressed:
+				<p id="alt_box"></p>
+				Shift pressed:
+				<p id="shift_box"></p>
+				Ctrl pressed:
+				<p id="ctrl_box"></p>
+			</section>
+
+			<br /><br />
+		</section>	
+		
+		<footer id="footer">
+			<b><i>SoftHouse</i></b> - najlepszy dystrybutor oprogramowania. &copy; Wszelkie prawa zastrzeżone
+		</footer>
+	
+	</div>
+	
+
+		<!-- Script injection -->
+		<script>
+			document.links.item(document.links.length-1).style.color = 'green';
+
+			window.addEventListener("resize", function(){
+    			document.getElementById("resize_box").innerHTML = Math.random();
+			});
+
+			var footer_company_name = document.getElementById("footer").childNodes[1].firstChild;
+			footer_company_name.addEventListener("click", function(){
+				footer_company_name.innerHTML='S O F T H O U S E';
+			});
+		</script>
+		<script src="js/app.js"></script>
+		<script src="js/pierwsza.js"></script>
+		<script src="js/druga.js"></script>
+		<script src="js/trzecia.js"></script>
+		<script src="js/czwarta.js"></script>
+		<script src="js/piata.js"></script>
+	</body>
+</html>

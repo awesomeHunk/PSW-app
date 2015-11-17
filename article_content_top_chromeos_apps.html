@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<?php
+$str = $_COOKIE["MyCookie"];
+$array = explode("|",$str);
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Best ChromeOS Apps!</title>
+		<meta name="author" content="Lukasz Bialkowski"/>
+		<meta name="description" content="Article showing top 5 apps on chromeOS"/>
+		<meta name="keywords" content="chrome, operating, system, freeware, shareware, trial, chromeOS"/>
+		<meta charset="UTF-8"/>
+
+		<!-- Style dependency -->
+		<link rel="shortcut icon" href="images/software_icon.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body {
+  font-family: <?php echo $array[0]; ?>;
+  font-size: <?php echo $array[1]; ?>pt;
+  background: rgb(<?php echo $array[2]; ?>, <?php echo $array[3]; ?>, <?php echo $array[4]; ?>);
+}
+
+</style>
+
+		<style>
+			#apps_table, td, th {
+			    border: 1px solid black;
+			}
+
+			#apps_table {
+			    width: 100%;
+			}
+
+			th {
+			    height: 50px;
+			    color: Orange;
+			}
+			td {
+				padding: 10px;
+    			height: 30px;
+    			vertical-align: center;
+			}
+		</style>
+
+	</head>
+	<body onload="set_current_menu_active('article');">
+		<div id="container">
+	
+		<div id="website_logo">
+			<a href="index.html">
+				<img id="logo_image" src="images/software_icon.png" alt="Logo image">
+				<span>Soft<b>House</b></span>
+			</a>
+		</div>
+		
+		<nav id="menu">
+			<div class="option">Main page</div>
+			<div class="option">Article</div>
+			<div class="option">Download</div>
+			<div class="option">Contact</div>
+			<div style="clear:both;"></div>
+		</nav>
+		
+		<div id="topbar">
+			<div id="topbarR">
+				<h1>Co znajdziesz na tej stronie?</h1>
+				Lorem esent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula.
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<aside id="sidebar">
+			<ul id="sidebar_menu">
+				<li><a href="index.html" name="main_page">Main&nbsp;page</a></li>
+				<li>Article
+					<ul>
+						<li>
+							<a href="article_content_top_chromeos_apps.html">Top Chrome Apps</a>
+							<ul>
+								<li>
+									<a href="article_content_top_chromeos_apps.html" name="article">Article</a>
+								</li>
+								<li>
+									<a href="article_content_top_chromeos_apps.html#apps_table">Summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">Gaming</a>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">App 'Boostrl'</a>
+						</li>
+					</ul>
+				</li>
+				<li><a href="download.html">Download</a></li>
+				<li><a href="contactme.html" name="contact_menu" onclick="javascript:set_current(this)">Contact</a></li>
+			</ul>
+		</aside>
+		
+		<section id="content">
+			<article>
+				<header>
+					<h1 id="article_content_header">Top 5 free apps on ChromeOS</h1>
+					<div class="dottedline"></div>
+				</header>
+				<img id="article_content_img" src="images/chrome.png" alt="ChromeOS image" >
+				<p id="article_content_paragraph">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia mollis odio eu bibendum. Praesent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula. Cras condimentum felis ac aliquet tristique. Sed elementum eu nulla vel rutrum. Cras feugiat nulla non congue malesuada.
+				</p>
+				<br />
+				<a href="#apps_table">Click here to see the summary</a>
+				<div style="clear: both"></div>
+
+				<a id="fixed_up_link" href="#container" style="text-decoration: none; color: black; font-size: 20px; text-align:center; vertical-align:middle; ">&#8593;</a>
+
+				<h3>Top 5 apps:</h3>
+				<ol>
+					<li>Strava
+						<p>
+							If you're serious about running or cycling then you should be serious about Strava. As smartphone fitness tools go it's one of the best, allowing you to track your performance, set goals and see daily progress updates.<br />
+									<a href="#">Download it.</a>
+						</p>
+					</li>
+					<li>Evernote
+						<p>
+							Evernote is the original and the best note-taking app. It allows you save ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists, record voice reminders and capture photos straight from the app. It's a seamless way to organise your probably very messy life.<br />
+									<a href="#">Download it.</a>
+						</p>
+						<ul style="list-style-type:square">
+							<li>
+								Free Version
+								<p>
+									Ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists.<br />
+									<a href="#">Download it.</a>
+								</p>	
+							</li>
+							<li>
+								Premium Version
+								<p>
+									Allows for that book you are e photos straight from the app. It's a seamless way to organise your probably.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>Pocket
+						<p>
+							Pocket is the original and the best note-taking app. It allows you save ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists, record voice reminders and capture photos straight from the app. It's a seamless way to organise your probably very messy life.<br />
+									<a href="#">Download it.</a>
+						</p>
+					</li>
+					<li>Pushbullet
+						<p>
+							If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. Download it to your phone and get the extension for your browser and any notifications that appear on your handset will also appear on your computer screen.<br />
+									<a href="#">Download it.</a>
+						</p>
+					</li>
+					<li>Periscope
+						<p>
+							Periscope, Twitter's live video streaming app, has made its way to Android and it's an essential download for anyone who likes the immediacy of Twitter but craves something more visual.<br />
+									<a href="#">Download it.</a>
+						</p>
+						<ul style="list-style-type:circle">
+							<li>Free
+								<p>
+									Free If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. <br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+							<li>Premium
+								<p>
+									Premium it vibrates thenPushbullet could be the app for you. Download it to your phonces and you can also create to-do lists, record voice reminders and capture photos straight from.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+							<li>Deluxe
+								<p>
+									Deluxe version ces and you can also create to-do lists, record voice reminders and capture photos straight from.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ol>
+
+					<br/>
+			
+
+			<section id="flex_layout_article">
+				
+				<article class="flex_article_item item1">
+				<header><h3>Some content</h3></header>
+				Premium it vibasddratessdfdsf thenPushbullet cou sdf sdf ld be the app for you. Download it to your phonces and you can also create to-do lists, record voice reminders and capture.<br/>
+				<div class="center_div_image"><img src="images/barman1.png" class="flex_image"/></div></article>
+
+				<article class="flex_article_item item2">
+				<header><h3>Article header</h3></header>
+				Free If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. This content is amazing and you should check it aout.<br/>
+				<div class="center_div_image"><img src="images/barman2.png" class="flex_image"/></div></article>
+
+				<article class="flex_article_item item3">
+				<header><h3>Third article</h3></header>
+				<p>Periscope, Twitter's live video streaming app, has made its way to Android and it's an essential download for anyone who likes the immediacy of Twitter but craves something more visual.<br/>
+				<div class="center_div_image"><img src="images/barman3.png" class="flex_image"/></div></article>
+
+				<article class="flex_article_item item3">
+				<header><h3>Third article</h3></header>
+				<p>Periscope, Twitter's live video streaming app, has made its way to Android and it's an essential download for anyone who likes the immediacy of Twitter but craves something more visual.<br/>
+				<div class="center_div_image"><img src="images/barman3.png" class="flex_image"/></div></article>
+			</section><br/>
+				<br/>
+			
+
+			<section id="flex_article">
+				<p>Premium it vibasddratessdfdsf thenPushbullet cou sdf sdf ld be the app for you. Download it to your phonces and you can also create to-do lists, record voice reminders and capture.<br/>
+				<div class="center_div_image">
+				<img src="images/barman1.png" class="flex_image"/></div></p>
+				<p>Free If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. This content is amazing and you should check it aout.<br/>
+				<div class="center_div_image">
+				<img src="images/barman2.png" class="flex_image"/></div></p>
+				<p>Periscope, Twitter's live video streaming app, has made its way to Android and it's an essential download for anyone who likes the immediacy of Twitter but craves something more visual.<br/>
+				<div class="center_div_image">
+				<img src="images/barman3.png" class="flex_image"/></div></p>
+			</section><br/>
+
+			<h3 style="color: #4C0000; letter-spacing: 3px;">Application summary: </h3>
+			<table border id="apps_table" style="text-align: center;">
+			    <thead >
+			        <tr >
+			        	<th>Application</th>
+			            <th>Version</th>
+			            <th>Share pictures</th>
+			            <th>People views</th>
+			            <th>External network</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			        	<td>Strava</td>
+			            <td>Free</td>
+			            <td>YES</td>
+			            <td>NO</td>
+			            <td>NO</td>
+			        </tr>
+			        <tr>
+			        	<td rowspan="2">Evernote</td>
+			            <td>Free</td>
+			            <td>YES</td>
+			            <td>NO</td>
+			            <td>NO</td>
+			        </tr>
+			        <tr>
+			            <td>Premium</td>
+			            <td>NO</td>
+			            <td>NO</td>
+			            <td>NO</td>
+			        </tr>
+			        <tr>
+			        	<td>Pocket</td>
+			        	<td>Free</td>
+			            <td colspan="2">YES</td>
+			            <td>NO</td>
+			        </tr>
+			        <tr>
+			        	<td>Pushbullet</td>
+			        	<td>Free</td>
+			            <td>YES</td>
+			            <td>NO</td>
+			            <td>NO</td>
+			        </tr>
+			        <tr>
+			        	<td>Periscope</td>
+			        	<td>Free</td>
+			            <td>YES</td>
+			            <td colspan="2">NO</td>
+			        </tr>
+			        <!-- etc. -->
+			    </tbody>
+			</table>
+
+			<div class="dottedline"></div>
+
+			<br />
+			<div id="pc_format_link" style="text-align:center; ">
+				<a href="http://www.pcformat.pl/Chrome-OS,tag" style="vertical-alignment: center;">
+					<span style="vertical-align: middle;">Click 'PCFormat' box for futher view --></span>
+					<img style="vertical-align: middle;" src="images/pcformat.png" alt="PCFormat website">
+				</a>
+				<div style="clear: both;"></div>
+			</div>	
+			</article>
+
+			<br/>
+			<br/>
+
+		</section>	
+		
+		<footer id="footer">
+			<b><i>SoftHouse</i></b> - najlepszy dystrybutor oprogramowania. &copy; Wszelkie prawa zastrzeżone
+		</footer>
+	
+	</div>
+	
+		
+		<!-- Script injection -->
+		<script>
+			document.links.item(document.links.length-1).style.color = 'green';
+		</script>
+		<script src="js/app.js"></script>
+		<script src="js/pierwsza.js"></script>
+		<script src="js/druga.js"></script>
+		<script src="js/trzecia.js"></script>
+		<script src="js/czwarta.js"></script>
+		<script src="js/piata.js"></script>
+	</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<?php
+session_start();
+if(isset($_COOKIE["MyCookie"])){
+	$str = $_COOKIE["MyCookie"];
+} else{
+	$str = "Verdana|10|0|0|0";
+}
+$array = explode("|",$str);
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>SoftHOUSE | Home!</title>
+		<meta name="author" content="Lukasz Bialkowski"/>
+		<meta name="description" content="Free software to download"/>
+		<meta name="keywords" content="freeware, shareware, trial, oprogramowanie, instalki, software"/>
+		<meta charset="UTF-8"/>
+
+		<!-- Style dependency -->
+		<link rel="shortcut icon" href="images/software_icon.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body {
+  font-family: <?php echo $array[0]; ?>;
+  font-size: <?php echo $array[1]; ?>pt;
+  background: rgb(<?php echo $array[2]; ?>, <?php echo $array[3]; ?>, <?php echo $array[4]; ?>);
+}
+
+</style>
+
+	</head>
+	<body onload="set_current_menu_active('main_page');">
+		<div id="container">
+	
+		<div id="website_logo">
+			<a href="index.html">
+				<img id="logo_image" src="images/software_icon.png" alt="Logo image">
+				<span>Soft<b>House</b></span>
+			</a>
+		</div>
+		
+		<nav id="menu">
+			<div class="option">Main page</div>
+			<div class="option">Article</div>
+			<div class="option">Download</div>
+			<div class="option">Contact</div>
+			<div style="clear:both;"></div>
+		</nav>
+		
+		<div id="topbar">
+			<div id="topbarR">
+				<h1>Co znajdziesz na tej stronie?</h1>
+				Lorem esent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula.
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+
+		<a id="fixed_up_link" href="#container" style="text-decoration: none; color: black; font-size: 20px; text-align:center; vertical-align:middle; ">&#8593;</a>
+		
+		<aside id="sidebar">
+			<ul id="sidebar_menu">
+				<li><a href="index.html" name="main_page">Main&nbsp;page</a></li>
+				<li>Article
+					<ul>
+						<li>
+							<a href="article_content_top_chromeos_apps.html">Top Chrome Apps</a>
+							<ul>
+								<li>
+									<a href="article_content_top_chromeos_apps.html">Article</a>
+								</li>
+								<li>
+									<a href="article_content_top_chromeos_apps.html#apps_table">Summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">Gaming</a>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">App 'Boostrl'</a>
+						</li>
+					</ul>
+				</li>
+				<li><a href="download.html">Download</a></li>
+				<li><a href="contactme.html" name="contact_menu" onclick="javascript:set_current(this)">Contact</a></li>
+				<?php
+				if(isset($_SESSION["MySessionLogin"]))
+				{
+					?>
+				<li><a href="personaldataform.php" onclick="javascript:set_current(this)">Personal data form</a></li>
+				<li><a href="cookies.php" onclick="javascript:set_current(this)">Cookies</a></li>
+					<?php
+				}
+				?>
+				<li><a href="register.php" onclick="javascript:set_current(this)">Register</a></li>
+				<li><a href="login.php" onclick="javascript:set_current(this)">Login</a></li>
+			</ul>
+		</aside>
+		
+		<section id="content">
+			<h2>Hello. </h2> <button onclick="myFunction()">Try it</button><p id="obrazkowo"></p>
+			<h1>Hot topics!</h1>
+			
+			<div class="dottedline"></div>
+			<article>
+				<header>
+					<a class="article_link" href="article_content_hardwarevssoftware.html">&#8594; <mark>Software</mark> vs. <mark>Hardware</mark> in gaming&#8592;</a><br />
+					<img class="article_img" src="images/hdd.png" alt="Software or hardware? What is more valuable in case of pc gaming?">
+				</header>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia mollis odio eu bibendum. Praesent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula. Cras condimentum felis ac aliquet tristique. Sed elementum eu nulla vel rutrum. Cras feugiat nulla non congue malesuada.
+				</p>
+				<div style="clear: both;"></div>
+			</article>
+
+			<br /><br />
+
+			<article>
+				<header>
+					<a class="article_link" href="article_content_top_chromeos_apps.html">&#8594; Top 5 free apps on <mark>ChromeOS</mark> &#8592;</a><br/>
+					<img class="article_img" src="images/chrome.png" alt="Best apps on CHROMEOS">
+				</header>
+				<p>
+				Cras et nulla vehicula, efficitur enim non, fermentum tortor. Curabitur id elementum leo. Sed eget turpis accumsan dolor mollis imperdiet. Praesent pellentesque laoreet lectus, at commodo magna varius vitae. Aliquam erat volutpat. Curabitur commodo, tortor laoreet sagittis cursus, nulla enim laoreet libero, et egestas risus ante vel orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc quis posuere massa, sed sollicitudin lorem. Mauris lacinia, massa efficitur malesuada luctus, arcu ex mattis erat, a venenatis magna risus nec neque. Nulla vulputate nisl urna, quis egestas orci suscipit tristique. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras auctor nec elit at ultricies. Morbi aliquam pharetra diam, vitae porta felis. Pellentesque vel arcu tincidunt, luctus justo quis, ultrices erat. Vivamus efficitur leo vitae dui molestie, eu varius sapien iaculis. In quis pharetra mauris.
+				</p>
+				<div style="clear: both;"></div>
+			</article>
+
+			<br /><br />
+
+			<article>	
+				<header>
+					<a class="article_link" href="article_content_hardwarevssoftware.html">&#8594; Performance boost via <mark>'Boostrl'</mark> &#8592;</a><br/>	
+					<img class="article_img" src="images/rocket.png" alt="Software testing - Boostrl">
+				
+				</header>
+				<p>	
+				Nam ullamcorper turpis non tristique sollicitudin. Etiam id magna lacus. Pellentesque vestibulum ex eget quam consectetur, sit amet luctus erat feugiat. Sed gravida tellus tempus consequat rhoncus. Phasellus lobortis magna et risus pharetra, facilisis blandit sapien tristique. Vivamus aliquam interdum arcu, eget facilisis ante gravida ut. Proin nec nisl ut lacus finibus sagittis id non nibh. Donec volutpat pretium libero. Sed fermentum vel ante vitae mattis. Curabitur porttitor turpis at scelerisque auctor. Sed vitae iaculis risus, ut iaculis nibh.
+				</p>
+				<div style="clear: both;"></div>
+			</article>
+		</section>	
+		
+		<footer id="footer">
+			<details>
+				<summary><b><i>SoftHouse</i></b> - best software developer.</summary>
+				 &copy; All rights reserved - 2015.<br/>
+				 Website coding progress -> <meter name="website_implementing_progress" min="0" low="40" high="90" max="100" value="75"></meter>
+			</details>
+		</footer>
+	
+	</div>
+	
+
+		<!-- Script injection -->
+		<script src="js/app.js"></script>
+		<script src="js/pierwsza.js"></script>
+		<script src="js/druga.js"></script>
+		<script src="js/trzecia.js"></script>
+		<script src="js/czwarta.js"></script>
+		<script src="js/piata.js"></script>
+		<script src="js/obrazki.js"></script>
+	</body>
+</html>

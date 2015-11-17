@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<?php
+$str = $_COOKIE["MyCookie"];
+$array = explode("|",$str);
+?>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Download a software!</title>
+		<meta name="author" content="Lukasz Bialkowski"/>
+		<meta name="description" content="Here you can download the resources"/>
+		<meta name="keywords" content="free, trial, download, mirrors, software"/>
+		<meta charset="UTF-8"/>
+
+		<!-- Style dependency -->
+		<link rel="shortcut icon" href="images/software_icon.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body {
+  font-family: <?php echo $array[0]; ?>;
+  font-size: <?php echo $array[1]; ?>pt;
+  background: rgb(<?php echo $array[2]; ?>, <?php echo $array[3]; ?>, <?php echo $array[4]; ?>);
+}
+
+</style>
+
+	</head>
+	<body id="download_body"  onload="set_current_menu_active('download');">
+		<div id="container">
+	
+		<div id="website_logo">
+			<a href="index.html">
+				<img id="logo_image" src="images/software_icon.png" alt="Logo image">
+				<span>Soft<b>House</b></span>
+			</a>
+		</div>
+		
+		<nav id="menu">
+			<div class="option">Main page</div>
+			<div class="option">Article</div>
+			<div class="option">Download</div>
+			<div class="option">Contact</div>
+			<div style="clear:both;"></div>
+		</nav>
+		
+		<div id="topbar">
+			<div id="topbarR">
+				<h1>Co znajdziesz na tej stronie?</h1>
+				Lorem esent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula.
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<aside id="sidebar">
+			<ul id="sidebar_menu">
+				<li><a href="index.html">Main&nbsp;page</a></li>
+				<li>Article
+					<ul>
+						<li>
+							<a href="article_content_top_chromeos_apps.html">Top Chrome Apps</a>
+							<ul>
+								<li>
+									<a href="article_content_top_chromeos_apps.html">Article</a>
+								</li>
+								<li>
+									<a href="article_content_top_chromeos_apps.html#apps_table">Summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">Gaming</a>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">App 'Boostrl'</a>
+						</li>
+					</ul>
+				</li>
+				<li><a href="download.html" name="download">Download</a></li>
+				<li><a href="contactme.html" name="contact_menu" onclick="javascript:set_current(this)">Contact</a></li>
+			</ul>
+		</aside>
+		
+		<section id="content">
+			<div id="proc_header"><h1>Download page!</h1></div>
+			
+			<div class="dottedline"></div>
+			<article>
+				<img id="article_content_img" src="images/download.png" alt="Download image">
+				<p id="article_content_paragraph">
+				Download page, consectetur adipiscing elit. Aenean lacinia mollis odio eu bibendum. Praesent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula. Cras condimentum felis ac aliquet tristique. Sed elementum eu nulla vel rutrum. Cras feugiat nulla non congue malesuada.
+				</p>
+				<br />
+				<div style="clear: both"></div>
+				<span id="pt_header">Android apps:</span><br/>
+				<ol class="download_apps_list">
+					<li>Strava
+						<p>
+							If you're serious about running or cycling then you should be serious about Strava. As smartphone fitness tools go it's one of the best, allowing you to track your performance, set goals and see daily progress updates.<br />
+									<a href="#">Download it.</a>
+						</p>
+					</li>
+					<li>Evernote
+						<p>
+							Evernote is the original and the best note-taking app. It allows you save ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists, record voice reminders and capture photos straight from the app. It's a seamless way to organise your probably very messy life.<br />
+									<a href="#">Download it.</a>
+						</p>
+						<ul style="list-style-type:square">
+							<li>
+								Free Version
+								<p>
+									Ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists.<br />
+									<a href="#">Download it.</a>
+								</p>	
+							</li>
+							<li>
+								Premium Version
+								<p>
+									Allows for that book you are e photos straight from the app. It's a seamless way to organise your probably.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ol>
+				<a id="fixed_up_link" href="#container" style="text-decoration: none; color: black; font-size: 20px; text-align:center; vertical-align:middle; ">&#8593;</a>
+				<br/><br/><span id="em_header">iOS apps:</span><br/>
+				<ul class="download_apps_list">
+					<li>Pocket
+						<p>
+							Pocket is the original and the best note-taking app. It allows you save ideas for that book you are always nearly about to write, syncs across devices and you can also create to-do lists, record voice reminders and capture photos straight from the app. It's a seamless way to organise your probably very messy life.<br />
+									<a href="#" target="_blank">Download it.</a>
+						</p>
+					</li>
+					<li>Pushbullet
+						<p>
+							If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. Download it to your phone and get the extension for your browser and any notifications that appear on your handset will also appear on your computer screen.<br />
+									<a href="#">Download it.</a>
+						</p>
+					</li>
+					<li>Periscope
+						<p>
+							Periscope, Twitter's live video streaming app, has made its way to Android and it's an essential download for anyone who likes the immediacy of Twitter but craves something more visual.<br />
+									<a href="#">Download it.</a>
+						</p>
+						<ul style="list-style-type:circle">
+							<li>Free
+								<p>
+									Free If you spend a lot of time at a computer and don't want to dig your phone out every time it vibrates thenPushbullet could be the app for you. <br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+							<li>Premium
+								<p>
+									Premium it vibrates thenPushbullet could be the app for you. Download it to your phonces and you can also create to-do lists, record voice reminders and capture photos straight from.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+							<li>Deluxe
+								<p>
+									Deluxe version ces and you can also create to-do lists, record voice reminders and capture photos straight from.<br />
+									<a href="#">Download it.</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<br />
+				
+			</article>
+
+			<article>
+				<table id="zebra_table"> 
+					<thead> 
+					<tr> 
+					    <th>Last Name</th> 
+					    <th>First Name</th> 
+					    <th>Email</th> 
+					    <th>Due</th> 
+					    <th>Web Site</th> 
+					</tr> 
+					</thead> 
+					<tbody> 
+					<tr> 
+					    <td>Smith</td> 
+					    <td>John</td> 
+					    <td>jsmith@gmail.com</td> 
+					    <td>$50.00</td> 
+					    <td>http://www.jsmith.com</td> 
+					</tr> 
+					<tr> 
+					    <td>Bach</td> 
+					    <td>Frank</td> 
+					    <td>fbach@yahoo.com</td> 
+					    <td>$50.00</td> 
+					    <td>http://www.frank.com</td> 
+					</tr> 
+					<tr> 
+					    <td>Doe</td> 
+					    <td>Jason</td> 
+					    <td>jdoe@hotmail.com</td> 
+					    <td>$100.00</td> 
+					    <td>http://www.jdoe.com</td> 
+					</tr> 
+					<tr> 
+					    <td>Conway</td> 
+					    <td>Tim</td> 
+					    <td>tconway@earthlink.net</td> 
+					    <td>$50.00</td> 
+					    <td>http://www.timconway.com</td> 
+					</tr> 
+					</tbody> 
+				</table> 
+
+			</article>
+		</section>	
+		
+		<footer id="footer">
+			<b><i>SoftHouse</i></b> - best software developer. &copy; All rights reserved - 2015.
+		</footer>
+	
+	</div>
+	
+
+		<!-- Script injection -->
+		<script src="js/app.js"></script>
+		<script src="js/pierwsza.js"></script>
+		<script src="js/druga.js"></script>
+		<script src="js/trzecia.js"></script>
+		<script src="js/czwarta.js"></script>
+		<script src="js/piata.js"></script>
+	</body>
+</html>

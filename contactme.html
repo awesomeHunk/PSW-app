@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<?php
+$str = $_COOKIE["MyCookie"];
+$array = explode("|",$str);
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Contact a developer</title>
+		<meta name="author" content="Lukasz Bialkowski"/>
+		<meta name="description" content="Contact form to send message to a developer"/>
+		<meta name="keywords" content="personal, data, telephone, number, email, content, software"/>
+		<meta charset="UTF-8"/>
+
+		<!-- Style dependency -->
+		<link rel="shortcut icon" href="images/software_icon.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body {
+  font-family: <?php echo $array[0]; ?>;
+  font-size: <?php echo $array[1]; ?>pt;
+  background: rgb(<?php echo $array[2]; ?>, <?php echo $array[3]; ?>, <?php echo $array[4]; ?>);
+}
+
+</style>
+
+	</head>
+	<body id="contact_session_body" onload="set_current_menu_active('contact_menu');">
+		<div id="container">
+	
+		<div id="website_logo">
+			<a href="index.html">
+				<img id="logo_image" src="images/software_icon.png" alt="Logo image">
+				<span>Soft<b>House</b></span>
+			</a>
+		</div>
+		
+		<nav id="menu">
+			<div class="option">Main page</div>
+			<div class="option">Article</div>
+			<div class="option">Download</div>
+			<div class="option">Contact</div>
+			<div style="clear:both;"></div>
+		</nav>
+		
+		<div id="topbar">
+			<div id="topbarR">
+				<h1>Co znajdziesz na tej stronie?</h1>
+				Lorem esent non hendrerit risus. Nulla id semper sem. Mauris risus mauris, ultrices sed ullamcorper sed, vulputate vel nisi. Aliquam augue ante, mattis in pulvinar vitae, ultrices nec leo. Nulla ultricies augue enim, sit amet semper tellus vulputate sit amet. Maecenas tincidunt, ex eu viverra scelerisque, quam lectus auctor nunc, at pretium nibh lacus in ligula.
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<aside id="sidebar">
+			<ul id="sidebar_menu">
+				<li><a href="index.html" name="main_page">Main&nbsp;page</a></li>
+				<li>Article
+					<ul>
+						<li>
+							<a href="article_content_top_chromeos_apps.html">Top Chrome Apps</a>
+							<ul>
+								<li>
+									<a href="article_content_top_chromeos_apps.html">Article</a>
+								</li>
+								<li>
+									<a href="article_content_top_chromeos_apps.html#apps_table">Summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">Gaming</a>
+						</li>
+						<li>
+							<a href="article_content_hardwarevssoftware.html">App 'Boostrl'</a>
+						</li>
+					</ul>
+				</li>
+				<li><a href="download.html">Download</a></li>
+				<li><a href="contactme.html" name="contact_menu" onclick="javascript:set_current(this)" name="contact_menu">Contact</a></li>
+			</ul>
+		</aside>
+
+		<section id="content">
+			
+			<h1>Contack a developer</h1>
+
+			<form id="register" autocomplete="on" action="" method="post" enctype="text/plain" >
+			<h1>Enter your personal data</h1>
+			<div class="dottedline"></div>
+			  <fieldset> 
+			    <legend>Personal details</legend> 
+			    <div> 
+			        <label>First Name*
+			        <input id="given-name" 
+				        name="given-name" 
+				        type="text" 
+				        placeholder="First name only" 
+				        required 
+				        autofocus 
+				        class="js_form_validation" 
+				        onfocus="validate_input_focus(); input_helper(this)" 
+				        onblur="validate_input_blur(); input_helper_removal(this)"> 
+					</label>
+			    </div>
+			    <div> 
+			        <label>Last Name*
+			        <input id="family-name" name="family-name" type="text" placeholder="Last name only" required class="js_form_validation" onfocus="validate_input_focus(); input_helper(this)" onblur="validate_input_blur();input_helper_removal(this)"> 
+					</label>
+			    </div>
+			    <div> 
+			        <label>Email* 
+			        <input id="email" name="email" onfocus="input_helper(this)" type="email" placeholder="example@domain.com" onblur="input_helper_removal(this)" required>
+					</label> 
+			    </div> 
+			    <div> 
+			        <label>URL 
+			        <input id="url" name="url" type="url" onfocus="input_helper(this)" onblur="input_helper_removal(this); url_entered(); " placeholder="http://mysite.com">
+					</label> 
+			    </div>    
+			    <div> 
+			        <label>Telephone*
+			        <input id="phone" name="phone" type="tel" onfocus="input_helper(this)" onblur="input_helper_removal(this)" placeholder="684-453-453" pattern="\d{3}[\-]\d{3}[\-]\d{3}" required>
+					</label> 
+			    </div> 
+			    <div>
+				    <h3>Sex</h3>
+				    	<input type="radio" name="sex" value="male">Male<br>
+	  					<input type="radio" name="sex" value="female">Female
+			    </div>
+			    <div>
+				    <h3>Hobby</h3>
+				    	<input type="checkbox" name="football" value="Football"> Football<br/>
+						<input type="checkbox" name="volleyball" value="Volleyball"> Volleyball <br/>
+						<input type="checkbox" name="bicycle" value="Bicycle"> Bicycle <br/>
+				</div>
+				
+				<div id="bmi_session">
+				<h3>BMI</h3>
+					<span>Do you want to count your BMI?</span>
+					<button value="bmi" id="bmi" onclick="get_BMI_user_input();">YES</button>
+				
+				</div>
+				<div>
+					<h3>Car</h3>
+					<select>
+					  <optgroup label="Opel">
+					     <option>Aigda</option>
+					     <option>Corsa</option>
+					  </optgroup>
+					  <optgroup label="BMW">
+					     <option>x5</option>
+					     <option>530x</option>
+					     <option>53 Coupe</option>
+					  </optgroup>
+					</select>
+				</div>
+				
+				<div>
+					<h3>Month of your bitrh:</h3> 
+					<input list="months" name="months" placeholder="eg. January">
+					  <datalist id="months">
+					    <option value="January">
+					    <option value="February">
+					    <option value="March">
+					    <option value="April">
+					    <option value="May">
+					    <option value="June">
+					    <option value="July">
+					    <option value="August">
+					    <option value="September">
+					    <option value="October">
+					    <option value="November">
+					    <option value="December">
+					  </datalist>
+				</div>
+
+				<div>
+					<h3>Message content</h3>
+						<textarea name="message" form="register" placeholder="Enter your message here" maxlength="200" rows="5" cols="50"></textarea>
+				</div>
+			    
+			    <button type="submit" value="Submit">Send</button>
+			    <button onclick="form_canceling_prompt();" value="Reset">Clear all</button>&nbsp;
+			    <a href="additional_personal_data.html">Additional personal data</a>
+ 			  </fieldset>
+			</form>
+		</section>	
+		
+		<footer id="footer">
+			<b><i>SoftHouse</i></b> - best software developer. &copy; All rights reserved - 2015.
+		</footer>
+	
+	
+	
+
+		<!-- Script injection -->
+		<script src="js/app.js"></script>
+		<script src="js/pierwsza.js"></script>
+		<script src="js/druga.js"></script>
+		<script src="js/trzecia.js"></script>
+		<script src="js/czwarta.js"></script>
+		<script src="js/piata.js"></script>
+	</body>
+</html>
