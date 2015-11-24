@@ -115,6 +115,8 @@ body {
 
 		<section id="content">
 			<header>
+				<h1>Welcome <?php echo $_SESSION["MySessionLogin"]; ?>!</h1>
+
 				<h3>Config tools:</h3>
 				<form id="register" autocomplete="on" action="cookies.php" method="POST">
 					Font size: <input type="number" id="cfg_font_size" name="cfg_font_size" min="10" max="30" value="<?php echo $array[1]; ?>"><br/>

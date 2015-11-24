@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-
+	<script type="text/javascript">
+<!--
+function switch(obj) {
+	var el = document.getElementById(obj);
+	if ( el.style.display != "none" ) {
+		el.style.display = 'none';
+	}
+	else {
+		el.style.display = '';
+	}
+}
+//-->
+</script>
 <?php
 session_start();
-
+require('db_connect.php');
 if(isset($_COOKIE["MyCookie"])){
 	$str = $_COOKIE["MyCookie"];
 } else{
@@ -181,17 +193,29 @@ if(!isset($_SESSION["MySessionLogin"]))
 
 		if($username != '' && $password != ''){
 			$correct = false;
+			$correct2 = false;
 			for($i=0; $i<count($dane) && !$correct; $i=$i+2){
 				if($dane[$i]==$username && $dane[$i+1]==$password)
 					$correct = true;
 			}
-			if($correct){
+				$query = mysql_query("SELECT * FROM users WHERE login = '$username'");  //pobranie rekordow
+				$data = mysql_fetch_array($query);
+				if($data['pass'] == $password)
+					$correct2=true;
+			if($correct OR $correct2){
 			?>
 				<fieldset> 
 					<?php 
 					$login = $username; 
 					echo success_function($login);
 					$_SESSION["MySessionLogin"] = $username;
+						if($correct AND $correct2){
+		echo '<i>You are logging in using username and password saved in our database and in an array.</i>';
+	}else if($correct){
+		echo '<i>You are logging in using username and password saved in an array.</i>';
+	}else if($correct2){
+		echo '<i>You are logging in using username and password saved in our database.</i>';
+	}
 					?>
 		  		</fieldset>
 			<?php
@@ -207,6 +231,18 @@ if(!isset($_SESSION["MySessionLogin"]))
 	echo '<h3>Hello '.$_SESSION["MySessionLogin"].', you are logged in!<br><a href="logout.php">Log out!</a></h3>';
 }
 ?>
+
+<hr>
+<h2>Dane w bazie:</h2><br>
+<?php
+	$sql = mysql_query("SELECT * FROM users");
+    while($result=mysql_fetch_assoc($sql))
+    {
+    	echo $result['login'].'   ->   '.$result['pass'].'<br>';
+    }
+
+
+?>
 		</section>	
 		
 		<footer id="footer">
@@ -214,7 +250,7 @@ if(!isset($_SESSION["MySessionLogin"]))
 		</footer>
 	
 	
-	
+
 
 		<!-- Script injection -->
 		<script src="js/app.js"></script>

@@ -2,6 +2,7 @@
 
 <?php
 session_start();
+require('db_connect.php');
 if(isset($_COOKIE["MyCookie"])){
 	$str = $_COOKIE["MyCookie"];
 } else{
@@ -10,7 +11,7 @@ if(isset($_COOKIE["MyCookie"])){
 $array = explode("|",$str);
 
 
-define("SUCCESS", "<h3>Congrats! Registration completed.<br> Check your email to activate your account.</h3>");
+define("SUCCESS", "<h3>Congrats! Registration completed.<br></h3>");
 
 function test_input($data) {
   $data = trim($data);
@@ -135,20 +136,22 @@ body {
 
 		<section id="content">
 			
-			<h1>Register form</h1>
-
-			<form id="register" autocomplete="on" action="register.php" method="POST">
+			
 <?php 
+if(!isset($_SESSION["MySessionLogin"])){
 if(!($_SERVER["REQUEST_METHOD"] == "POST"))
 {
 ?>
+			<h1>Register form</h1>
+
+			<form id="register" autocomplete="on" action="register.php" method="POST">
 			<h1>Enter your personal data</h1>
 			<div class="dottedline"></div>
 			  <fieldset> 
 			    <legend><b>Your account details</b></legend> 
 			    <div> 
 			        <label>Name*
-			        <input id="name" name="name" type="text" value="Test" placeholder="Enter your name" utofocus> 
+			        <input id="name" name="name" type="text" value="Test" placeholder="Enter your name" required autofocus> 
 					</label>
 			    </div>
 			    <div> 
@@ -214,15 +217,27 @@ if(!($_SERVER["REQUEST_METHOD"] == "POST"))
 	$phone = test_input($_POST["phone"]);
 	$error = "";
 
+	$check = mysql_query("SELECT id FROM users WHERE login = '$username'");
+	$ile = mysql_num_rows($check);
+	//echo $ile;
+
 
 	if($name != ''){
-		if($username != ''){
+		if($username != '' && $ile == 0){
 			if($password != '' && $password == $password2){
 				if(email_check($email)){
 					if(phone_check($phone)){
 						?>
 						<fieldset> 
-							<?php echo SUCCESS; ?>
+							<?php 
+							echo SUCCESS;
+							$sql = "INSERT INTO `users` (`id`, `login`, `pass`, `register_date`, `name`, `mail`, `phone`) VALUES (NULL, '$username', '$password', NOW(), '$name', '$email', '$phone');";
+							if(mysql_query($sql)){
+								echo 'Dodano!';
+							} else {
+								echo mysql_error();
+							}
+							?>
 						    <legend><b>Your account details</b></legend> 
 						    <div> 
 						    	You are on <b><?php echo $_SERVER['HTTP_REFERER']; ?></b> site, your IP address is <b><?php echo $_SERVER["REMOTE_ADDR"]; ?></b><br>
@@ -253,14 +268,98 @@ if(!($_SERVER["REQUEST_METHOD"] == "POST"))
 				$error = "Invalid password/passwords!";
 			}
 		} else {
-			$error = "Invalid username!";
+			$error = "Invalid/used username!";
 		}
 	} else {
 		$error = "Invalid name!";
 	}
 echo '<h3><font color="red">'.$error.'</font></h3>';
 }
+}
+else
+{
+if(!($_SERVER["REQUEST_METHOD"] == "POST"))
+{
+				$username = $_SESSION["MySessionLogin"];
+				$query = mysql_query("SELECT * FROM users WHERE login = '$username'");  //pobranie rekordow
+				$data = mysql_fetch_array($query);
 ?>
+
+
+
+<h1>Edit form</h1>
+
+			<form id="register" autocomplete="on" action="register.php" method="POST">
+			<h1>Hello <?php echo $_SESSION["MySessionLogin"]; ?>!<br>Enter your correct personal data</h1>
+			<div class="dottedline"></div>
+			  <fieldset> 
+			    <legend><b>Your account details</b></legend> 
+			    <div> 
+			        <label>Name*
+			        <input id="name" name="name" type="text" value="<?php echo $data['name']; ?>" placeholder="Enter your name" required autofocus> 
+					</label>
+			    </div>
+			    <div> 
+			        <label>User name*
+			        <input id="username" name="username" type="text" readonly="readonly" value="<?php echo $data['login']; ?>" placeholder="Enter your user name" required> 
+					</label>
+			    </div>
+			  	<div> 
+			        <label>Password*
+			        <input id="password" name="password" type="password" value="<?php echo $data['pass']; ?>" placeholder="Enter your password" required> 
+					</label>
+			    </div>
+			    <div> 
+			        <label>Repeat password*
+			        <input id="password2" name="password2" type="password" value="<?php echo $data['pass']; ?>" placeholder="Enter your password" required> 
+					</label>
+			    </div>
+			    <div> 
+			        <label>Email* 
+			        <input id="email" name="email" type="text" value="<?php echo $data['mail']; ?>" placeholder="example@domain.com" required>
+					</label> 
+			    </div>    
+			    <div> 
+			        <label>Telephone*
+			        <input id="phone" name="phone" type="text" value="<?php echo $data['phone']; ?>" placeholder="000-000-000" required>
+					</label> 
+			    </div> 
+	
+
+			    <button type="submit" value="Submit">Update</button>
+ 			  </fieldset>
+			</form>
+<?php
+}else{
+	$zm = array();
+	$zm[] = "name";
+	$zm[] = "username";
+	$zm[] = "password";
+	$zm[] = "password2";
+	$zm[] = "email";
+	$zm[] = "phone";
+
+	$name = test_input($_POST[current($zm)]);
+	$username = test_input($_POST[next($zm)]);
+	$password = test_input($_POST[next($zm)]);
+	$password2 = test_input($_POST[next($zm)]);
+	$email = test_input($_POST[next($zm)]);
+	$phone = test_input($_POST[end($zm)]);
+	$error = "";
+
+	if($password == $password2 && email_check($email) && phone_check($phone)){
+		$sql = "UPDATE `users` SET `pass`='$password', `name`='$name', `mail`='$email', `phone`='$phone' WHERE `login`='$username'";
+		if(mysql_query($sql)){
+			echo 'Dane wyedytowane!';
+		} else {
+			echo mysql_error();
+		}
+	}
+}
+}
+?>
+
+
 		</section>	
 		
 		<footer id="footer">

@@ -141,14 +141,15 @@ body {
 		</aside>
 
 		<section id="content">
-			
-			<h1>Personal data form</h1>
+			<h1>Welcome <?php echo $_SESSION["MySessionLogin"]; ?>!</h1>
+
 
 			<form id="register" autocomplete="on" action="personaldataform.php" method="POST">
 <?php 
 if(!($_SERVER["REQUEST_METHOD"] == "POST"))
 {
 ?>
+
 			<h1>Enter your personal data</h1>
 			<div class="dottedline"></div>
 			  <fieldset> 
